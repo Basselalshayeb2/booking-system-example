@@ -16,4 +16,9 @@ class ResourceRepository implements ResourceRepositoryInterface
     {
         return Resource::create($data);
     }
+
+    public function findById($id)
+    {
+        return Resource::find($id);
+    }
 }

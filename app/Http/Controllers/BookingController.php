@@ -15,7 +15,6 @@ class BookingController extends Controller
     public function storeBooking(StoreBookingRequest $request)
     {
         $data = $request->validated();
-
         return response()->success(new BookingResource($this->bookingService->storeBooking($data)));
     }
 

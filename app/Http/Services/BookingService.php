@@ -10,6 +10,18 @@ class BookingService
     {
     }
 
+    public function getAllBookingsByResourceId($id)
+    {
+        return $this->bookingRepository->getBy($id, [
+            'whereHas' => ['resourceObj' => [
+                'id' => $id
+                ]
+            ],
+            'without' => ['resourceObj']
+
+        ]);
+    }
+
     public function storeBooking($data)
     {
         return $this->bookingRepository->save($data);

@@ -9,4 +9,9 @@ class Resource extends Model
     //
 
     protected $fillable = ['name', 'type', 'description'];
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

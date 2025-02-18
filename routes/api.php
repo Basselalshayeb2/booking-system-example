@@ -9,10 +9,10 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::controller(ResourceController::class)->prefix('resources')->group(function () {
+Route::controller(ResourceController::class)->prefix('resources')->group(function ($route) {
     Route::get('/', 'getAllResources');
     Route::post('/', 'storeResource');
-    Route::prefix('{id}')->get('/bookings', 'getAllBookings');
+    Route::get('/{id}/bookings', 'getAllBookings');
 });
 
 Route::controller(BookingController::class)->prefix('bookings')->group(function () {
