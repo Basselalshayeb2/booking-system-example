@@ -2,7 +2,18 @@
 
 namespace App\Http\Repositories;
 
-class ResourceRepository
-{
+use App\Http\Interfaces\ResourceRepositoryInterface;
+use App\Models\Resource;
 
+class ResourceRepository implements ResourceRepositoryInterface
+{
+    public function all()
+    {
+        return Resource::all();
+    }
+
+    public function save($data)
+    {
+        return Resource::create($data);
+    }
 }

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Carbon;
 
-class ResourceResource extends JsonResource
+class BookingResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +17,12 @@ class ResourceResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'type' => $this->type,
-            'description' => $this->description,
+            'user_id' => $this->user_id,
+            'resource_id' => $this->resource_id,
+            'user' => new UserResource($this->user),
+            'resource' => new ResourceResource($this->resourceObj),
+            'start_time' => $this->start_time->toDateTimeString(),
+            'end_time' => $this->end_time->toDateTimeString(),
             'created_at' => $this->created_at->toDateTimeString(),
             'updated_at' => $this->updated_at->toDateTimeString(),
         ];

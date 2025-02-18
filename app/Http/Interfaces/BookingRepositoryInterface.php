@@ -2,7 +2,6 @@
 
 namespace App\Http\Interfaces;
 
-interface BookingRepositoryInterface
+interface BookingRepositoryInterface extends RepositoryInterface
 {
-
 }

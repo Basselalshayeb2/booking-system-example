@@ -11,7 +11,7 @@ class StoreResourceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class StoreResourceRequest extends FormRequest
             //
             'name' => ['required', 'string', 'max:50'],
             'type' => ['required', 'string', 'max:50'], // Todo: make enum for it or table for it
-            'description' => ['required', 'string']
+            'description' => ['nullable', 'string']
         ];
     }
 }

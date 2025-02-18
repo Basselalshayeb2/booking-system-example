@@ -2,7 +2,17 @@
 
 namespace App\Http\Repositories;
 
-class BookingRepository
-{
+use App\Http\Interfaces\BookingRepositoryInterface;
+use App\Models\Booking;
 
+class BookingRepository implements BookingRepositoryInterface
+{
+    public function all()
+    {
+        return Booking::all();
+    }
+    public function save($data)
+    {
+        return Booking::create($data);
+    }
 }

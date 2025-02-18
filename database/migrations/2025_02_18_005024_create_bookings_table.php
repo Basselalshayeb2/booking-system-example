@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('resource_id')->constrained('resources');
+            $table->foreignId('user_id')->constrained('users');
+            $table->datetime('start_time');
+            $table->datetime('end_time');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

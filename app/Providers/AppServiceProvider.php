@@ -35,13 +35,13 @@ class AppServiceProvider extends ServiceProvider
         // Repositories bindings
 
 
-        // Singleton Services
-        App::singleton(BookingService::class, function ($app) {
-            return new BookingService();
-        });
-
-        App::singleton(ResourceService::class, function ($app) {
-            return new ResourceService();
-        });
+        // Singleton Services : No need for this service
+//        App::singleton(BookingService::class, function ($app) {
+//            return new BookingService();
+//        });
+//
+//        App::singleton(ResourceService::class, function ($app) {
+//            return new ResourceService();
+//        });
     }
 }
