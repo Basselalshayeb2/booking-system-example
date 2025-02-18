@@ -16,6 +16,6 @@ Route::controller(ResourceController::class)->prefix('resources')->group(functio
 });
 
 Route::controller(BookingController::class)->prefix('bookings')->group(function () {
-   Route::post('/', 'storeBooking');
-   Route::delete('/{id}', 'cancelBooking');
+    Route::post('/', 'storeBooking');
+    Route::delete('/{id}', 'cancelBooking');
 });

@@ -11,6 +11,7 @@ class BookingRepository implements BookingRepositoryInterface
     {
         return Booking::all();
     }
+
     public function save($data)
     {
         return Booking::create($data);

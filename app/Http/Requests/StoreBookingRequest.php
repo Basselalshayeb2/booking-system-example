@@ -25,7 +25,7 @@ class StoreBookingRequest extends FormRequest
             'resource_id' => ['required', 'numeric', 'exists:resources,id'],
             'user_id' => ['required', 'numeric', 'exists:users,id'],
             'start_time' => ['required', 'date'],
-            'end_time' => ['required', 'date', 'after:start_time']
+            'end_time' => ['required', 'date', 'after:start_time'],
             //
         ];
     }

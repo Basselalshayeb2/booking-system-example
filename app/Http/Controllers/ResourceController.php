@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreResourceRequest;
 use App\Http\Resources\ResourceResource;
 use App\Http\Services\ResourceService;
-use App\Models\User;
-use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
@@ -20,6 +18,7 @@ class ResourceController extends Controller
     public function getAllResources()
     {
         $resources = $this->resourceService->getAllResources();
+
         return response()->success(ResourceResource::collection($resources));
     }
 
@@ -31,6 +30,7 @@ class ResourceController extends Controller
         //
         $data = $request->validated();
         $resource = $this->resourceService->storeResource($data);
+
         return response()->success(new ResourceResource($resource));
     }
 }

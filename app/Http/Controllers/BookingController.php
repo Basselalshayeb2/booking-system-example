@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Resources\BookingResource;
 use App\Http\Services\BookingService;
-use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
@@ -16,6 +15,7 @@ class BookingController extends Controller
     public function storeBooking(StoreBookingRequest $request)
     {
         $data = $request->validated();
+
         return response()->success(new BookingResource($this->bookingService->storeBooking($data)));
     }
 

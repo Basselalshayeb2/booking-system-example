@@ -25,7 +25,7 @@ class StoreResourceRequest extends FormRequest
             //
             'name' => ['required', 'string', 'max:50'],
             'type' => ['required', 'string', 'max:50'], // Todo: make enum for it or table for it
-            'description' => ['nullable', 'string']
+            'description' => ['nullable', 'string'],
         ];
     }
 }
