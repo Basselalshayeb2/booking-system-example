@@ -26,4 +26,9 @@ class BookingService
     {
         return $this->bookingRepository->save($data);
     }
+
+    public function cancelBooking($id)
+    {
+        return $this->bookingRepository->delete($id);
+    }
 }

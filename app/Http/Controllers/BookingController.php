@@ -20,6 +20,7 @@ class BookingController extends Controller
 
     public function cancelBooking($id)
     {
-        return null;
+        $this->bookingService->cancelBooking($id);
+        return response()->success(true);
     }
 }

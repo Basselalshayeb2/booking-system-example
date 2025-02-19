@@ -22,8 +22,8 @@ class StoreBookingRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'resource_id' => ['required', 'numeric', 'exists:resources,id'],
-            'user_id' => ['required', 'numeric', 'exists:users,id'],
+            'resource_id' => ['required', 'integer', 'exists:resources,id'],
+            'user_id' => ['required', 'integer', 'exists:users,id'],
             'start_time' => ['required', 'date'],
             'end_time' => ['required', 'date', 'after:start_time'],
             //

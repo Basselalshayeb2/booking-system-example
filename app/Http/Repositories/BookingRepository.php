@@ -37,4 +37,9 @@ class BookingRepository implements BookingRepositoryInterface
         $query->without($options['without'] ?? []);
         return $query->get();
     }
+
+    public function delete($id): void
+    {
+        Booking::where('id', $id)->delete();
+    }
 }
