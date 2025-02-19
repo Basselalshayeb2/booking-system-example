@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Http\Services\BookingService;
 use App\Http\Services\ResourceService;
+use App\Models\Booking;
+use App\Observers\BookingObserver;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Booking::observe(BookingObserver::class);
         Response::macro('success', function ($data) {
             return response()->json([
                 'data' => $data,
@@ -32,6 +35,14 @@ class AppServiceProvider extends ServiceProvider
                 'code' => ResponseAlias::HTTP_OK,
             ], ResponseAlias::HTTP_OK);
         });
+        Response::macro('error', function ($msg, $code = ResponseAlias::HTTP_INTERNAL_SERVER_ERROR) {
+            return response()->json([
+                'message' => $msg,
+                'status' => 'error',
+                'code' => $code,
+            ], $code);
+        });
+
         // Repositories bindings
 
         // Singleton Services : No need for this service

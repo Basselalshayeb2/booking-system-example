@@ -2,7 +2,9 @@
 
 namespace App\Http\Services;
 
+use App\Exceptions\ModelNotFound;
 use App\Http\Interfaces\ResourceRepositoryInterface;
+use Illuminate\Http\Response;
 
 class ResourceService
 {
@@ -26,7 +28,7 @@ class ResourceService
     {
         $resource = $this->resourceRepository->findById($resourceId);
         if (!$resource) {
-            return 'Resource not found'; // Todo:
+            throw new ModelNotFound("The requested resource does not exist", Response::HTTP_NOT_FOUND);
         }
         $bookings = $this->bookingService->getAllBookingsByResourceId($resourceId);
         return $bookings;
